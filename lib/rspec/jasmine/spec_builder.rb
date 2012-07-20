@@ -1,5 +1,6 @@
-require 'jasmine/selenium_driver'
-require 'jasmine/example'
+require 'rspec/jasmine/selenium_driver'
+require 'rspec/jasmine/example'
+require 'json'
 
 module RSpec
   module Jasmine
@@ -118,7 +119,7 @@ module RSpec
   
       def load_results
         @spec_ids.each_slice(50).inject({}) do |results, slice|
-          results.merge(eval_js(<<-JS.strip_heredoc))
+          results.merge(eval_js(<<-JS))
             var result = jsApiReporter.resultsForSpecs(#{json_generate(slice)}); 
             return JSON.stringify(result);
           JS

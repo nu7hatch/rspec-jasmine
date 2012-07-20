@@ -1,5 +1,5 @@
 require 'rspec/core/example'
-require 'jasmine/example_result'
+require 'rspec/jasmine/example_result'
 require 'uri'
 
 module RSpec

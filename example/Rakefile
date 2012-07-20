@@ -1,0 +1,18 @@
+require "rspec/core/rake_task"
+
+desc 'Default: run specs.'
+task :default => :spec
+
+desc "Run specs"
+RSpec::Core::RakeTask.new do |t|
+end
+
+namespace :spec do
+  desc "Runs jasmine specs"
+  task :jasmine do
+    require File.expand_path('../spec/jasmine', __FILE__)
+  end
+
+  desc "Run all test suites"
+  task :all => [:spec, :'spec:jasmine']
+end

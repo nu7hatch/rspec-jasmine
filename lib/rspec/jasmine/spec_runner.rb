@@ -1,4 +1,6 @@
-require 'jasmine/spec_builder'
+require 'rspec/jasmine/spec_builder'
+require 'rack'
+require 'rack/server'
 
 module RSpec
   module Jasmine
@@ -8,7 +10,7 @@ module RSpec
         return if suites.empty?
   
         builders = suites.map do |suite|
-          Jasmine::SpecBuilder.new(world, options.merge(:suite => suite))
+          RSpec::Jasmine::SpecBuilder.new(world, options.merge(:suite => suite))
         end
         
         first_builder = builders.first

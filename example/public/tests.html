@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="shortcut icon" type="image/png" href="/lib/jasmine-1.2.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="/lib/jasmine-1.2.0/jasmine.css">
+
+  <!-- Jasmine lib files -->
+  <script type="text/javascript" src="/lib/jasmine-1.2.0/jasmine.js"></script>
+  <script type="text/javascript" src="/lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+  <!-- Source files -->
+  <script type="text/javascript" src="src/Player.js"></script>
+  <script type="text/javascript" src="src/Song.js"></script>
+  
+  <!-- 
+    Your spec files - can be all the scripts separately, or some
+    nicely combined together with asset pipeline, etc.
+  -->
+  <script type="text/javascript" src="spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="spec/PlayerSpec.js"></script>
+
+  <!-- Jasmine suite runner -->
+  <script type="text/javascript">
+
+    var jsApiReporter;
+
+    (function() {
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        jsApiReporter = new jasmine.JsApiReporter();
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(jsApiReporter);
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function(spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+        var currentWindowOnload = window.onload;
+
+        window.onload = function() {
+            if (currentWindowOnload) {
+                currentWindowOnload();
+            }
+            execJasmine();
+        };
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+    })();
+
+  </script>
+</head>
+<body>
+</body>
+</html>
