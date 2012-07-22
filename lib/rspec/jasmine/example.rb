@@ -37,6 +37,12 @@ module RSpec
             set_exception(e, "while assigning the example description")
           end
         end
+
+        class << self.metadata
+          def location
+            caller.find { |x| x =~ /\<top \(required\)\>/ }.split(/\:\d+\:in/)[0]
+          end
+        end
         
         @result.merge_backtrace_with!(exception) if exception
         finish(reporter)
