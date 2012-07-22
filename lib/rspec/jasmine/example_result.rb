@@ -35,7 +35,7 @@ module RSpec
         end
       end
   
-      def screem!
+      def scream!
         if failed?
           raise RSpec::Expectations::ExpectationNotMetError.new(error_message)
         end

@@ -16,7 +16,7 @@ module RSpec
             begin
               @example_group_instance.instance_eval(&@example_block)
               @result = @example_group_instance.instance_variable_get('@result')
-              @result.screem! if @result
+              @result.scream! if @result
             rescue RSpec::Core::Pending::PendingDeclaredInExample => e
               @pending_declared_in_example = e.message
             rescue Exception => e
