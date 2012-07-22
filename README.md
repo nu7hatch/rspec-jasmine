@@ -2,7 +2,9 @@
 
 This is a nice and handy, RSpec powered runner and reporter for Jasmine
 test suites. It's simpler and more flexible than stuff provided by `jasmine`
-gem.
+gem. Here's how it looks like:
+
+![Mick Jagger](https://raw.github.com/nu7hatch/rspec-jasmine/master/example/screenshot.png)
 
 NOTE: It works only with RSpec 2.0 and higher.
 
